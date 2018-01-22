@@ -1,0 +1,20 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.background{
+    background-image: url('background.jpg');
+    background-size: 125vw;
+    background-repeat:no-repeat;
+    width:100%;
+    height:125vh;
+}
+.mainbox{
+    background-color: #d2d2d9;
+    height:100%;
+    width:70%;
+    margin-right:15%;
+    margin-left:15%;
+
+}
