@@ -23,3 +23,6 @@
     <script src="script.js"></script>
     <title>Scores</title>
 </head>
+<body>
+<div class="background">
+    <div class="mainbox">
