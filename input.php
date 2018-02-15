@@ -12,7 +12,7 @@ else{
 
 ?>
 
-<form action="input.php" method="post">
+<!--<form action="input.php" method="post">-->
 
 <div class="jamesInput inputbox">
     <table class="inputtable">
@@ -127,7 +127,7 @@ else{
 </div>
 
 
-
+<input type="submit"/>
 </form>
 
 
