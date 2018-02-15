@@ -7,8 +7,6 @@ if(isset($_POST['jamesCharacter'])){
     echo("Hey it worked!");
 
 }
-else{
-
 
 ?>
 
@@ -131,11 +129,7 @@ else{
 <!--</form>-->
 
 
-<?
-}
 
-
-?>
 
 
 
