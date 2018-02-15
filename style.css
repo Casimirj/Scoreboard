@@ -22,7 +22,7 @@ body{
 
 
 /*8888888888888888 -- input page -- 888888888888888888*/
-.jamesInput .danInput{
+.inputbox{
     display:block;
     width:50%;
     height:100%;

@@ -5,8 +5,8 @@ include('header.php');
 ?>
 
 
-<div class="jamesInput"></div>
-<div class="danInput"></div>
+<div class="jamesInput inputbox"></div>
+<div class="danInput inputbox"></div>
 
 <input type="text" list="characters" />
 <datalist id="characters">
