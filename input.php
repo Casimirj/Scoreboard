@@ -10,7 +10,7 @@ if(isset($_POST['jamesCharacter'])){
 
 ?>
 
-<!--<form action="input.php" method="post">-->
+<form action="input.php" method="post">
 
 <div class="jamesInput inputbox">
     <table class="inputtable">
@@ -125,8 +125,8 @@ if(isset($_POST['jamesCharacter'])){
 </div>
 
 
-<!--<input type="submit"/>-->
-<!--</form>-->
+<input type="submit"/>
+</form>
 
 
 
