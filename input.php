@@ -3,6 +3,11 @@
 include('header.php');
 
 ?>
+
+
+<div class="jamesInput"></div>
+<div class="danInput"></div>
+
 <input type="text" list="characters" />
 <datalist id="characters">
     <option>Alien</option>
