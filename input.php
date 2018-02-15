@@ -3,7 +3,7 @@
 include('header.php');
 
 ?>
-
+<form type="POST"
 
 <div class="jamesInput inputbox">
     <table class="inputtable">
@@ -111,6 +111,10 @@ include('header.php');
                 </datalist>
             </td>
 
+        </tr>
+        <tr>
+            <td>Wins</td>
+            <td><input type="text" name="danielscore"/> </td>
         </tr>
 
     </table>

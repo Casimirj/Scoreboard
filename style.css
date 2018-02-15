@@ -33,3 +33,6 @@ body{
 .danInput{
     float:left;
 }
+.inputtable tr{
+    height: 80px;
+}
