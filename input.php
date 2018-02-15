@@ -2,8 +2,17 @@
 
 include('header.php');
 
+
+if(isset($_POST['jamesCharacter'])){
+    echo("Hey it worked!");
+
+}
+else{
+
+
 ?>
-<form type="POST"
+
+<form action="input.php" method="post">
 
 <div class="jamesInput inputbox">
     <table class="inputtable">
@@ -12,7 +21,7 @@ include('header.php');
                 James Character
             </td>
             <td>
-                <input type="text" list="characters" />
+                <input type="text" name="jamesCharacter" list="characters" />
                 <datalist id="characters">
                     <option>Alien</option>
                     <option>Bo Rai Cho</option>
@@ -72,7 +81,7 @@ include('header.php');
                 Danjamin's Character
             </td>
             <td>
-                <input type="text" list="characters" />
+                <input type="text" name="danielCharacter" list="characters" />
                 <datalist id="characters">
                     <option>Alien</option>
                     <option>Bo Rai Cho</option>
@@ -126,14 +135,15 @@ include('header.php');
 </div>
 
 
+<input type="submit"
+</form>
 
 
+<?
+}
 
 
-
-
-
-
+?>
 
 
 
