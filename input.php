@@ -21,7 +21,7 @@ else{
                 James Character
             </td>
             <td>
-                <input type="text" name="jamesCharacter" list="characters" />
+                <input name="jamesCharacter" list="characters" />
                 <datalist id="characters">
                     <option>Alien</option>
                     <option>Bo Rai Cho</option>
@@ -63,7 +63,7 @@ else{
         </tr>
         <tr>
             <td>Wins</td>
-            <td><input type="text" name="jamesscore"/> </td>
+            <td><input name="jamesscore" title="jamesscore"/> </td>
         </tr>
 
     </table>
@@ -81,7 +81,7 @@ else{
                 Danjamin's Character
             </td>
             <td>
-                <input type="text" name="danielCharacter" list="characters" />
+                <input name="danielCharacter" list="characters" title="danielchar" />
                 <datalist id="characters">
                     <option>Alien</option>
                     <option>Bo Rai Cho</option>
@@ -121,14 +121,14 @@ else{
         </tr>
         <tr>
             <td>Wins</td>
-            <td><input type="text" name="danielscore"/> </td>
+            <td><input name="danielscore" title="danielscore"/> </td>
         </tr>
     </table>
 </div>
 
 
 <input type="submit"/>
-</form>
+<!--</form>-->
 
 
 <?
