@@ -52,6 +52,10 @@ include('header.php');
             </td>
 
         </tr>
+        <tr>
+            <td>Wins</td>
+            <td><input type="text" name="jamesscore"/> </td>
+        </tr>
 
     </table>
 
