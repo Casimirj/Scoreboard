@@ -9,7 +9,7 @@ if(isset($_POST['jamesCharacter'])){
 }
 else{
 
-/*
+
 ?>
 
 <form action="input.php" method="post">
@@ -135,11 +135,11 @@ else{
 </div>
 
 
-<input type="submit"
+<input type="submit">
 </form>
 
 
-<?*/
+<?
 }
 
 
