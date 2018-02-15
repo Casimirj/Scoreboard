@@ -116,26 +116,18 @@ else{
                     <option>Tanya</option>
                     <option>Tremor</option>
                     <option>Triborg</option>
-
                 </datalist>
             </td>
-
         </tr>
         <tr>
             <td>Wins</td>
             <td><input type="text" name="danielscore"/> </td>
         </tr>
-
     </table>
-
-
-
-
-
 </div>
 
 
-<input type="submit"/>
+
 </form>
 
 
