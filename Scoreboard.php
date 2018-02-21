@@ -2,7 +2,7 @@
 
 
 include('header.php');
-buildScore();
+
 echo("huh...");
 
 
