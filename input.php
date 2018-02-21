@@ -4,7 +4,10 @@ include('header.php');
 
 
 if(isset($_POST['jamesCharacter'])){
-    echo("Hey it worked!");
+    echo("James character: ".$_POST['jamesCharacter']);
+    echo("James Score: ".$_POST['jamesscore']);
+    echo("Daniel character: ".$_POST['danielCharacter']);
+    echo("Daniel Score: ".$_POST['danielscore']);
 
 }
 
