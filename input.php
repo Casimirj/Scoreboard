@@ -12,61 +12,54 @@ if(isset($_POST['jamesCharacter'])){
 
 <form action="input.php" method="post">
 
-<div class="jamesInput inputbox">
-    <table class="inputtable">
-        <tr>
-            <td>
-                James Character
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input name="jamesCharacter" list="characters" />
-                <datalist id="characters">
-                    <option>Alien</option>
-                    <option>Bo Rai Cho</option>
-                    <option>Cassie Cage</option>
-                    <option>DVorah</option>
-                    <option>Ermac</option>
-                    <option>Erron Black</option>
-                    <option>Ferra/Torr</option>
-                    <option>Goro</option>
-                    <option>Jacqui Briggs</option>
-                    <option>Jason Voorhees</option>
-                    <option>Jax</option>
-                    <option>Johnny Cage</option>
-                    <option>Kano</option>
-                    <option>Kenshi</option>
-                    <option>Kitana</option>
-                    <option>Kotal Kahn</option>
-                    <option>Kung Jin</option>
-                    <option>Kung Lao</option>
-                    <option>Leatherface</option>
-                    <option>Liu Kang</option>
-                    <option>Mileena</option>
-                    <option>Predator</option>
-                    <option>Quan Chi</option>
-                    <option>Raiden</option>
-                    <option>Reptile</option>
-                    <option>Scorpion</option>
-                    <option>Shinnok</option>
-                    <option>Sonya Blade</option>
-                    <option>Sub-Zero</option>
-                    <option>Takeda</option>
-                    <option>Tanya</option>
-                    <option>Tremor</option>
-                    <option>Triborg</option>
-
-                </datalist>
-            </td>
-
-        </tr>
-        <tr>
+    <div class="jamesInput inputbox">
+        <div class="inputtext">
+            James's Character
+        </div>
+        <div class="characterinput">
+            <input name="jamesCharacter" list="characters" title="jameschar" />
+            <datalist id="characters">
+                <option>Alien</option>
+                <option>Bo Rai Cho</option>
+                <option>Cassie Cage</option>
+                <option>DVorah</option>
+                <option>Ermac</option>
+                <option>Erron Black</option>
+                <option>Ferra/Torr</option>
+                <option>Goro</option>
+                <option>Jacqui Briggs</option>
+                <option>Jason Voorhees</option>
+                <option>Jax</option>
+                <option>Johnny Cage</option>
+                <option>Kano</option>
+                <option>Kenshi</option>
+                <option>Kitana</option>
+                <option>Kotal Kahn</option>
+                <option>Kung Jin</option>
+                <option>Kung Lao</option>
+                <option>Leatherface</option>
+                <option>Liu Kang</option>
+                <option>Mileena</option>
+                <option>Predator</option>
+                <option>Quan Chi</option>
+                <option>Raiden</option>
+                <option>Reptile</option>
+                <option>Scorpion</option>
+                <option>Shinnok</option>
+                <option>Sonya Blade</option>
+                <option>Sub-Zero</option>
+                <option>Takeda</option>
+                <option>Tanya</option>
+                <option>Tremor</option>
+                <option>Triborg</option>
+            </datalist>
+        </div>
+        <div class="inputtext">
             <td>Wins</td>
-        </tr>
-        <tr>
+        </div>
+        <div class="winsinput">
             <td><input name="jamesscore" title="jamesscore"/> </td>
-        </tr>
+        </div>
 
     </table>
 
@@ -77,59 +70,53 @@ if(isset($_POST['jamesCharacter'])){
 
 </div>
 <div class="danInput inputbox">
-    <table class="inputtable">
-        <tr>
-            <td>
-                Danjamin's Character
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input name="danielCharacter" list="characters" title="danielchar" />
-                <datalist id="characters">
-                    <option>Alien</option>
-                    <option>Bo Rai Cho</option>
-                    <option>Cassie Cage</option>
-                    <option>DVorah</option>
-                    <option>Ermac</option>
-                    <option>Erron Black</option>
-                    <option>Ferra/Torr</option>
-                    <option>Goro</option>
-                    <option>Jacqui Briggs</option>
-                    <option>Jason Voorhees</option>
-                    <option>Jax</option>
-                    <option>Johnny Cage</option>
-                    <option>Kano</option>
-                    <option>Kenshi</option>
-                    <option>Kitana</option>
-                    <option>Kotal Kahn</option>
-                    <option>Kung Jin</option>
-                    <option>Kung Lao</option>
-                    <option>Leatherface</option>
-                    <option>Liu Kang</option>
-                    <option>Mileena</option>
-                    <option>Predator</option>
-                    <option>Quan Chi</option>
-                    <option>Raiden</option>
-                    <option>Reptile</option>
-                    <option>Scorpion</option>
-                    <option>Shinnok</option>
-                    <option>Sonya Blade</option>
-                    <option>Sub-Zero</option>
-                    <option>Takeda</option>
-                    <option>Tanya</option>
-                    <option>Tremor</option>
-                    <option>Triborg</option>
-                </datalist>
-            </td>
-        </tr>
-        <tr>
+    <div class="inputtext">
+         Danjamin's Character
+    </div>
+    <div class="characterinput">
+    <input name="danielCharacter" list="characters" title="danielchar" />
+    <datalist id="characters">
+        <option>Alien</option>
+        <option>Bo Rai Cho</option>
+        <option>Cassie Cage</option>
+        <option>DVorah</option>
+        <option>Ermac</option>
+        <option>Erron Black</option>
+        <option>Ferra/Torr</option>
+        <option>Goro</option>
+        <option>Jacqui Briggs</option>
+        <option>Jason Voorhees</option>
+        <option>Jax</option>
+        <option>Johnny Cage</option>
+        <option>Kano</option>
+        <option>Kenshi</option>
+        <option>Kitana</option>
+        <option>Kotal Kahn</option>
+        <option>Kung Jin</option>
+        <option>Kung Lao</option>
+        <option>Leatherface</option>
+        <option>Liu Kang</option>
+        <option>Mileena</option>
+        <option>Predator</option>
+        <option>Quan Chi</option>
+        <option>Raiden</option>
+        <option>Reptile</option>
+        <option>Scorpion</option>
+        <option>Shinnok</option>
+        <option>Sonya Blade</option>
+        <option>Sub-Zero</option>
+        <option>Takeda</option>
+        <option>Tanya</option>
+        <option>Tremor</option>
+        <option>Triborg</option>
+    </datalist>
+    </div>
+    <div class="inputtext">
             <td>Wins</td>
-        </tr>
-        <tr>
-            <td><input name="danielscore" title="danielscore"/> </td>
-        </tr>
-    </table>
+    </div>
+    <div class="winsinput">
+        <td><input name="danielscore" title="danielscore"/> </td>
+    </div>
 </div>
 
 
