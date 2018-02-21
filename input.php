@@ -4,7 +4,7 @@ include('header.php');
 
 
 if(isset($_POST['jamesCharacter'])){
-    $data = fopen("data.json", "w");
+    $data = fopen("data.json", "w") or die("Unable to open file!");
 
     $game->james->character = $_POST['jamesCharacter'];
     $game->james->score = $_POST['jamesscore'];
