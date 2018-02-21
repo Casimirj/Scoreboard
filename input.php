@@ -78,6 +78,8 @@ if(isset($_POST['jamesCharacter'])){
             <td>
                 Danjamin's Character
             </td>
+        </tr>
+        <tr>
             <td>
                 <input name="danielCharacter" list="characters" title="danielchar" />
                 <datalist id="characters">
