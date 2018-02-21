@@ -37,6 +37,6 @@ body{
 .inputtable tr{
     height: 80px;
 }
-.inputtable tr td input{
+.inputtable tr td .inputtable tr td input{
     width:100%;
 }

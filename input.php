@@ -18,6 +18,8 @@ if(isset($_POST['jamesCharacter'])){
             <td>
                 James Character
             </td>
+        </tr>
+        <tr>
             <td>
                 <input name="jamesCharacter" list="characters" />
                 <datalist id="characters">
@@ -61,6 +63,8 @@ if(isset($_POST['jamesCharacter'])){
         </tr>
         <tr>
             <td>Wins</td>
+        </tr>
+        <tr>
             <td><input name="jamesscore" title="jamesscore"/> </td>
         </tr>
 
@@ -121,6 +125,8 @@ if(isset($_POST['jamesCharacter'])){
         </tr>
         <tr>
             <td>Wins</td>
+        </tr>
+        <tr>
             <td><input name="danielscore" title="danielscore"/> </td>
         </tr>
     </table>
