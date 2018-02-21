@@ -120,7 +120,7 @@ if(isset($_POST['jamesCharacter'])){
 </div>
 
 
-<input type="submit"/>
+<input type="submit" class="submitbutton"/>
 </form>
 
 
