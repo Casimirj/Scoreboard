@@ -12,7 +12,7 @@ if(isset($_POST['jamesCharacter'])){
     $game->daniel->score = $_POST['danielscore'];
     $game_json = json_encode($game);
     fwrite($data, $game_json);
-
+    fclose($data);
     echo($game_json);
 }
 
