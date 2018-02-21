@@ -9,19 +9,14 @@ if(isset($_POST['jamesCharacter'])){
     $inp = file_get_contents('data.json');
     $scores = json_decode($inp);
 
-
+    $game->round = 0;
     $game->james->character = $_POST['jamesCharacter'];
     $game->james->score = $_POST['jamesscore'];
     $game->daniel->character = $_POST['danielCharacter'];
     $game->daniel->score = $_POST['danielscore'];
 
-    $maxgame = 0;
-    foreach($scores['round'] as $roundnum){
-        $maxgame = $roundnum;
-    }
-    echo $maxgame;
-    $scores->round=$maxgame+1;
-    $scores->data=$game;
+
+    array_push($scores, $game);
 
     $scores_json = json_encode($scores);
     fwrite($data, $scores_json);
