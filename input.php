@@ -9,6 +9,17 @@ if(isset($_POST['jamesCharacter'])){
     echo("Daniel character: ".$_POST['danielCharacter']."<p>");
     echo("Daniel Score: ".$_POST['danielscore']."<p>");
 
+
+    $data = fopen("data.json", "w");
+
+    $game->james->character = $_POST['jamesCharacter'];
+    $game->james->score = $_POST['jamesscore'];
+    $game->daniel->character = $_POST['danielCharacter'];
+    $game->daniel->score = $_POST['danielscore'];
+    $game_json = json_encode($game);
+    fwrite($data, $game_json);
+
+    echo($game_json);
 }
 
 ?>
