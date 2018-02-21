@@ -58,7 +58,7 @@ if(isset($_POST['jamesCharacter'])){
             <td>Wins</td>
         </div>
         <div class="winsinput">
-            <td><input name="jamesscore" title="jamesscore"/> </td>
+            <td><input type='number' name="jamesscore" title="jamesscore"/> </td>
         </div>
 
     </table>
@@ -115,7 +115,7 @@ if(isset($_POST['jamesCharacter'])){
             <td>Wins</td>
     </div>
     <div class="winsinput">
-        <td><input name="danielscore" title="danielscore"/> </td>
+        <td><input type='number' name="danielscore" title="danielscore"/> </td>
     </div>
 </div>
 
