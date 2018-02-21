@@ -7,10 +7,12 @@ include('header.php');
 
 
 function buildScore(){
-    echo "STUFF";
+    $datafile = fopen("data.json", "r");
+    echo fread($datafile,filesize("data.json"));
+    echo "That iddnt work!";
 }
 function getNewGames(){
-    
+
 }
 
 ?>
