@@ -4,12 +4,6 @@ include('header.php');
 
 
 if(isset($_POST['jamesCharacter'])){
-    echo("James character: ".$_POST['jamesCharacter']."<p>");
-    echo("James Score: ".$_POST['jamesscore']."<p>");
-    echo("Daniel character: ".$_POST['danielCharacter']."<p>");
-    echo("Daniel Score: ".$_POST['danielscore']."<p>");
-
-
     $data = fopen("data.json", "w");
 
     $game->james->character = $_POST['jamesCharacter'];
