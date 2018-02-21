@@ -16,7 +16,7 @@ if(isset($_POST['jamesCharacter'])){
     $game->daniel->score = $_POST['danielscore'];
 
     array_push($scores, $game);
-    
+
 
     $scores_json = json_encode($scores);
     fwrite($data, $scores_json);
