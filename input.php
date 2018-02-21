@@ -15,8 +15,13 @@ if(isset($_POST['jamesCharacter'])){
     $game->daniel->character = $_POST['danielCharacter'];
     $game->daniel->score = $_POST['danielscore'];
 
-    array_push($scores, $game);
-
+    $maxgame = 0;
+    foreach($scores['round'] as $roundnum){
+        $maxgame = $roundnum;
+    }
+    echo $maxgame;
+    $scores->round=$maxgame+1;
+    $scores->data=$game;
 
     $scores_json = json_encode($scores);
     fwrite($data, $scores_json);
