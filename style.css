@@ -44,3 +44,9 @@ body{
     font-size:96px;
     padding:0 5%;
 }
+.submitbutton{
+    border-radius: 18px;
+    height: 100px;
+    width: 60%;
+    margin: 20% 20%;
+}
