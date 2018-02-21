@@ -4,16 +4,24 @@ include('header.php');
 
 
 if(isset($_POST['jamesCharacter'])){
-    $data = fopen("data.json", "w") or die("Unable to open file!");
+    $data = fopen("data.json", "rw") or die("Unable to open file!");
+
+    $inp = file_get_contents('data.json');
+    $scores = json_decode($inp);
+
 
     $game->james->character = $_POST['jamesCharacter'];
     $game->james->score = $_POST['jamesscore'];
     $game->daniel->character = $_POST['danielCharacter'];
     $game->daniel->score = $_POST['danielscore'];
-    $game_json = json_encode($game);
-    fwrite($data, $game_json);
+
+    array_push($scores, $game);
+    
+
+    $scores_json = json_encode($scores);
+    fwrite($data, $scores_json);
     fclose($data);
-    echo($game_json);
+    echo($scores_json);
 }
 
 ?>
