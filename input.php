@@ -7,26 +7,20 @@ if(isset($_POST['jamesCharacter'])){
     $data = fopen("data.json", "r") or die("Unable to open file!");
 
     $inp = file_get_contents('data.json') or die("Unable to get contents!");
-    var_dump($inp);
+    fclose($data);
     $scores = json_decode(trim($inp), true);
-    echo"<p>-------------------------------------------------</p>";
-    var_dump($scores);
-    echo"<p>-------------------------------------------------</p>";
-    print_r($scores);
-    echo"<p>-------------------------------------------------</p>";
 
+    $maxscore = 0;
+    foreach($scores as $score){
+        $maxscore = $score['round'];
+    }
 
     $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
     $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
-    $game = array('round'=>3, 'james'=>$james, 'daniel'=>$daniel);
-    print_r($game);
-    echo"<p>-------------------------------------------------</p>";
-    echo"<p>-------------------------------------------------</p>";
-    array_push($scores, $game );
-    var_dump($scores);
+    $game = array('round'=>$maxscore+1, 'james'=>$james, 'daniel'=>$daniel);
 
+    array_push($scores, $game );
     $scores_json = json_encode($scores);
-    fclose($data);
 
     $data = fopen("data.json", "w") or die("Unable to open file!");
     fwrite($data, $scores_json) or die("Unable to write!");
