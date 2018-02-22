@@ -51,9 +51,9 @@ function generateScores($gamedata){
         $jlosses[$datarow['daniel']['character']] += $datarow['daniel']['score'];
         $dlosses[$datarow['daniel']['character']] += $datarow['james']['score'];
     }
-    $scores = array($jwins, $jlosses, $dwins, $dlosses);
+    $scores = array('jwins'=>$jwins, 'jlosses'=>$jlosses, 'dwins'=>$dwins, 'dlosses'=>$dlosses);
     print_r($scores);
-
+    return $scores;
 }
 
 
