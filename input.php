@@ -6,7 +6,7 @@ include('header.php');
 if(isset($_POST['jamesCharacter'])){
     $data = fopen("data.json", "rw") or die("Unable to open file!");
 
-    $inp = file_get_contents('data.json');
+    $inp = file_get_contents('data.json') or die("Unable to get contents!");
     $scores = json_decode($inp, true);
     print_r($scores);
 
