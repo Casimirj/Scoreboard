@@ -18,7 +18,7 @@ function getGames(){
     print_r($data);
     return $data;
 }
-function printLatestGamesTable($gamedata){
+
     ?><table class="latestgames"><?
     foreach($gamedata as $datarow){
         ?><tr>
@@ -26,11 +26,11 @@ function printLatestGamesTable($gamedata){
             <td><?=$datarow['jamesCharacter']?></td>
             <td><?=$datarow['jamesScore']?></td>
             <td><?=$datarow['danielCharacter']?></td>
-            <td><?=$datarow['danielScore']?></td>
+            <td><?=$datarow['danielScore']?></td>`
         </tr><?
     }
     ?></table><?
-}
+
 
 
 ?>
