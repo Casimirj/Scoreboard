@@ -9,14 +9,10 @@ if(isset($_POST['jamesCharacter'])){
     $inp = file_get_contents('data.json');
     $scores = json_decode($inp);
 
-    $game = array('round', 'james', 'daniel');
-    $game->james = array('character', 'score');
-    $game->daniel = array('character', 'score');
-    $game->round = 1;
-    $game->james->character = $_POST['jamesCharacter'];
-    $game->james->score = $_POST['jamesscore'];
-    $game->daniel->character = $_POST['danielCharacter'];
-    $game->daniel->score = $_POST['danielscore'];
+
+    $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
+    $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
+    $game = array('round'=>1, 'james'=>$james, 'daniel'=>$daniel);
     print_r($game);
 
     array_push($scores, $game);
