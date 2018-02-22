@@ -87,6 +87,7 @@ function generateScores($gamedata){
         $dscore[$datarow['daniel']['character']] = $dwins[$datarow['daniel']['character']] - $dlosses[$datarow['daniel']['character']];
     }
     $scores = array('jscore'=>$jscore, 'jwins'=>$jwins, 'jlosses'=>$jlosses, 'dscore'=>$dscore, 'dwins'=>$dwins, 'dlosses'=>$dlosses);
+    print_r($scores);
     return $scores;
 }
 
