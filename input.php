@@ -23,8 +23,7 @@ if(isset($_POST['jamesCharacter'])){
 
         $maxround = 0;
         foreach($scores as $score){
-            //var_dump($score);
-            echo $score['round']+1;
+            $maxround =  $score['round']+1;
         }
 
         $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
