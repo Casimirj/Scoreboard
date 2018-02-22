@@ -16,7 +16,7 @@ if(isset($_POST['jamesCharacter'])){
         $inp = file_get_contents('data.json') or die("Unable to get contents!");
         fclose($data);
         $scores = json_decode(trim($inp), true);
-        if($scores==null) $scores = array();
+        //if($scores===null) $scores = array();
 
 
 
