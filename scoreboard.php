@@ -1,11 +1,11 @@
 <?php
 
-echo 'heeeeeeyyyyyy1';
+
 include('header.php');
-/*echo 'heeeeeeyyyyyy2';
+echo 'heeeeeeyyyyyy2';
 
 $gamedata = getGames();
-
+/*
 printLatestGamesTable($gamedata);
 
 
