@@ -18,7 +18,7 @@ if(isset($_POST['jamesCharacter'])){
     array_push($scores, $game);
 
     $scores_json = json_encode($scores);
-    fwrite($data, $scores_json) or die("Unable to open file!");
+    fwrite($data, $scores_json) or die("Unable to write!");
     fclose($data);
     print_r($scores);
 
