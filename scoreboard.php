@@ -4,12 +4,9 @@
 include('header.php');
 
 
+$gamedata = getGames();
+printLatestGamesTable($gameData);
 
-
-
-$datafile = fopen("data.json", "r");
-echo fread($datafile,filesize("data.json"));
-fclose($datafile);
 
 
 
@@ -18,6 +15,21 @@ function getGames(){
     $data_json = fread($datafile,filesize("data.json"));
     $data = json_decode($data_json);
     print_r($data);
+    return $data;
+}
+function printLatestGamesTable($gameData){
+    ?><table class="latestgames"><?
+    foreach($gameData as $row){
+        ?><tr>
+            <td><?$row['round']?></td>
+            <td><?$row['jamesCharacter']?></td>
+            <td><?$row['jamesScore']?></td>
+            <td><?$row['danielCharacter']?></td>
+            <td><?$row['danielScore']?></td>
+
+        </tr><?
+    }
+    ?></table>
 }
 
 
