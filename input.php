@@ -8,7 +8,9 @@ if(isset($_POST['jamesCharacter'])){
 
     $inp = file_get_contents('data.json') or die("Unable to get contents!");
     $scores = json_decode($inp, true);
-    print_r($scores);
+    foreach ($scores as $james) {
+        echo $james['james']['character'];
+    }
 
     $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
     $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
