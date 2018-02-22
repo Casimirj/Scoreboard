@@ -11,8 +11,9 @@ if(isset($_POST['jamesCharacter'])){
     $scores = json_decode(trim($inp), true);
     echo"<p>-------------------------------------------------</p>";
     var_dump($scores);
-    foreach ($scores as $james) {
-        echo 'found something';
+    echo"<p>-------------------------------------------------</p>";
+    foreach ($scores as $score) {
+        echo $score['james']['character'];
     }
 
     $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
