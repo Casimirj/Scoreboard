@@ -2,24 +2,21 @@
 
 
 include('header.php');
-echo 'heeeeeeyyyyyy2';
 
 $gamedata = getGames();
-
 printLatestGamesTable($gamedata);
-
-echo('888888888888888888888888888888888888888888888888888888888888');
-generateScores($gamedata);
+$scores = generateScores($gamedata);
 
 
-function getGames(){
-    $datafile = fopen("data.json", "r") or die("Unable to open file!");
-    $data_json= file_get_contents('data.json') or die("Unable to get contents!");
-    $data = json_decode(trim($data_json), true);
-    fclose($datafile);
-    print_r($data);
-    return $data;
-}
+
+
+
+
+
+
+
+/*8888888888888888888888888888888888888888888 -- FUNCTIONS -- 88888888888888888888888888888888888888888888888888*/
+/*----------------------------VIEWS----------------------------------*/
 function printLatestGamesTable($gamedata){
     echo '<table class="latestgames">';
     foreach ($gamedata as $datarow) {
@@ -33,6 +30,37 @@ function printLatestGamesTable($gamedata){
     }
     echo '</table>';
 }
+function printAllScores($scores){
+    $characters = array('Alien','Bo Rai Cho','Cassie Cage','DVorah','Ermac','Erron Black','Ferra/Torr','Goro','Jacqui Briggs','Jason Voorhees','Jax','Johnny Cage','Kano','Kenshi','Kitana','Kotal Kahn','Kung Jin','Kung Lao','Leatherface','Liu Kang','Mileena','Predator','Quan Chi','Raiden','Reptile','Scorpion','Shinnok','Sonya Blade','Sub-Zero','Takeda','Tanya','Tremor','Triborg');
+
+
+    echo '<h1>James Scores</h1><table class="scoretable">';
+    echo'<tr><th>Character</th><th>Score</th><th>Wins</th><th>Losses</th></tr>';
+    foreach($characters as $character){
+        echo'<tr><td>'.$character.'</td><td>'.$scores['jscore'][$character].'</td>';
+        echo'<td>'.$scores['jwins'][$character].'</td><td>'.$scores['jlosses'][$character].'</td></tr>';
+    }
+    echo '<h1>Daniel Scores</h1><table class="scoretable">';
+    echo'<tr><th>Character</th><th>Score</th><th>Wins</th><th>Losses</th></tr>';
+    foreach($characters as $character){
+        echo'<tr><td>'.$character.'</td><td>'.$scores['dscore'][$character].'</td>';
+        echo'<td>'.$scores['dwins'][$character].'</td><td>'.$scores['dlosses'][$character].'</td></tr>';
+    }
+
+
+
+}
+
+/*----------------------------HELPER FUNCTIONS----------------------------------*/
+function getGames(){
+    $datafile = fopen("data.json", "r") or die("Unable to open file!");
+    $data_json= file_get_contents('data.json') or die("Unable to get contents!");
+    $data = json_decode(trim($data_json), true);
+    fclose($datafile);
+    return $data;
+}
+
+
 function generateScores($gamedata){
     $jscore = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
     $jwins = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
@@ -58,9 +86,9 @@ function generateScores($gamedata){
         $dscore[$datarow['daniel']['character']] = $dwins[$datarow['daniel']['character']] - $dlosses[$datarow['daniel']['character']];
     }
     $scores = array('jscore'=>$jscore, 'jwins'=>$jwins, 'jlosses'=>$jlosses, 'dscore'=>$dscore, 'dwins'=>$dwins, 'dlosses'=>$dlosses);
-    print_r($scores);
     return $scores;
 }
+
 
 
 ?>
