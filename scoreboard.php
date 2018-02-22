@@ -5,7 +5,7 @@ include('header.php');
 
 
 $gamedata = getGames();
-printLatestGamesTable($gameData);
+printLatestGamesTable($gamedata);
 
 
 
