@@ -4,7 +4,7 @@
 include('header.php');
 echo 'heeeeeeyyyyyy2';
 
-//$gamedata = getGames();
+$gamedata = getGames();
 
 //printLatestGamesTable($gamedata);
 
