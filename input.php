@@ -24,7 +24,7 @@ if(isset($_POST['jamesCharacter'])){
         }
 
         $james = array('character'=> str_replace(' ', '-', $_POST['jamesCharacter']), 'score'=>$_POST['jamesscore']);
-        $daniel = array('character'=>$_POST['danielCharacter'], str_replace(' ', '-', $_POST['danielscore']);
+        $daniel = array('character'=>str_replace(' ', '-', $_POST['danielCharacter']), 'score'=>$_POST['danielscore']);
         $game = array('round'=>($maxround), 'day'=>date("m.d.y.g:i.a"), 'james'=>$james, 'daniel'=>$daniel);
 
         array_push($scores, $game );
