@@ -7,10 +7,8 @@ echo 'heeeeeeyyyyyy2';
 $gamedata = getGames();
 
 printLatestGamesTable($gamedata);
-$jwins = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
-$jlosses = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
-$dwins = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
-$dlosses = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+
+echo('888888888888888888888888888888888888888888888888888888888888');
 
 
 
@@ -22,8 +20,7 @@ function getGames(){
     print_r($data);
     return $data;
 }
-function printLatestGamesTable($gamedata)
-{
+function printLatestGamesTable($gamedata){
     echo '<table class="latestgames">';
     foreach ($gamedata as $datarow) {
         echo('<tr>
@@ -35,6 +32,32 @@ function printLatestGamesTable($gamedata)
         </tr>');
     }
     echo '</table>';
+}
+function generateScores($gamedata){
+    $jwins = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+    $jlosses = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+    $dwins = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+    $dlosses = array('Alien' => 0,'Bo Rai Cho' => 0,'Cassie Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui Briggs' => 0,'Jason Voorhees' => 0,'Jax' => 0,'Johnny Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal Kahn' => 0,'Kung Jin' => 0,'Kung Lao' => 0,'Leatherface' => 0,'Liu Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+
+
+    foreach($gamedata as $datarow){
+        $jwins[$datarow['james']['character']] += $datarow['james']['score'];
+        $dwins[$datarow['james']['character']] += $datarow['daniel']['score'];
+        $jwins[$datarow['daniel']['character']] += $datarow['james']['score'];
+        $dwins[$datarow['daniel']['character']] += $datarow['daniel']['score'];
+
+        $jlosses[$datarow['james']['character']] += $datarow['daniel']['score'];
+        $dlosses[$datarow['james']['character']] += $datarow['james']['score'];
+        $jlosses[$datarow['daniel']['character']] += $datarow['daniel']['score'];
+        $dlosses[$datarow['daniel']['character']] += $datarow['james']['score'];
+
+
+        $scores = array($jwins, $jlosses, $dwins, $dlosses);
+        var_dump($scores);
+
+    }
+
+
 }
 
 
