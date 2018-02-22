@@ -23,10 +23,10 @@ function getGames(){
     foreach($gamedata as $datarow){
         echo('<tr>
             <td>'.$datarow['round'].'</td>
-            <td>'.$datarow['jamesCharacter'].'</td>
-            <td>'.$datarow['jamesScore'].'</td>
-            <td>'.$datarow['danielCharacter'].'</td>
-            <td>'.$datarow['danielScore'].'</td>
+            <td>'.$datarow['james']['character'].'</td>
+            <td>'.$datarow['james']['score'].'</td>
+            <td>'.$datarow['daniel']['character'].'</td>
+            <td>'.$datarow['daniel']['score'].'</td>
         </tr>');
     }
     echo'</table>';
