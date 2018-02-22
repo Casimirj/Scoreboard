@@ -16,11 +16,11 @@ if(isset($_POST['jamesCharacter'])){
     //print_r($game);
 
     array_push($scores, $game);
-
+    print_r($scores);
     $scores_json = json_encode($scores);
     fwrite($data, $scores_json) or die("Unable to write!");
     fclose($data);
-    print_r($scores);
+
 
 }
 
