@@ -25,7 +25,7 @@ if(isset($_POST['jamesCharacter'])){
 
         $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
         $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
-        $game = array('round'=>$maxround+1, 'day'=>date("m.d.y.g:i.a"), 'james'=>$james, 'daniel'=>$daniel);
+        $game = array('round'=>($maxround+1), 'day'=>date("m.d.y.g:i.a"), 'james'=>$james, 'daniel'=>$daniel);
 
         array_push($scores, $game );
         $scores_json = json_encode($scores);
