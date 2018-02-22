@@ -7,7 +7,7 @@ if(isset($_POST['jamesCharacter'])){
     $data = fopen("data.json", "rw") or die("Unable to open file!");
 
     $inp = file_get_contents('data.json');
-    $scores = json_decode($inp);
+    $scores = json_decode($inp, true);
     print_r($scores);
 
     $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
@@ -15,7 +15,7 @@ if(isset($_POST['jamesCharacter'])){
     $game = array('round'=>2, 'james'=>$james, 'daniel'=>$daniel);
     //print_r($game);
 
-    array_push($scores, $game);
+    array_push($scores, $game );
 
     $scores_json = json_encode($scores);
     //fwrite($data, $scores_json) or die("Unable to write!");
