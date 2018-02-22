@@ -23,7 +23,7 @@ if(isset($_POST['jamesCharacter'])){
 
     array_push($scores, $game );
 
-
+    var_dump($scores);
 
 
     $scores_json = json_encode($scores);
