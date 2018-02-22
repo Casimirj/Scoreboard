@@ -9,6 +9,8 @@ if(isset($_POST['jamesCharacter'])){
     $inp = file_get_contents('data.json') or die("Unable to get contents!");
     var_dump($inp);
     $scores = json_decode(trim($inp), true);
+    echo"<p>-------------------------------------------------</p>";
+    var_dump($scores);
     foreach ($scores as $james) {
         echo 'found something';
     }
