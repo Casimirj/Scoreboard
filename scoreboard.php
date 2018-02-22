@@ -6,7 +6,7 @@ include('header.php');
 $gamedata = getGames();
 printLatestGamesTable($gamedata);
 $scores = generateScores($gamedata);
-
+printAllScores($scores);
 
 
 
