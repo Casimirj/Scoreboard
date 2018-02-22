@@ -20,9 +20,9 @@ if(isset($_POST['jamesCharacter'])){
     $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
     $game = array('round'=>2, 'james'=>$james, 'daniel'=>$daniel);
     print_r($game);
-
+    echo"<p>-------------------------------------------------</p>";
+    echo"<p>-------------------------------------------------</p>";
     array_push($scores, $game );
-
     var_dump($scores);
 
 
