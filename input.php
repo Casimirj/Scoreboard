@@ -15,13 +15,15 @@ if(isset($_POST['jamesCharacter'])){
     $game->james->score = $_POST['jamesscore'];
     $game->daniel->character = $_POST['danielCharacter'];
     $game->daniel->score = $_POST['danielscore'];
-
+    print_r($game);
 
     array_push($scores, $game);
 
     $scores_json = json_encode($scores);
     fwrite($data, $scores_json);
     fclose($data);
+    print_r($scores);
+
     echo($scores_json);
 }
 
