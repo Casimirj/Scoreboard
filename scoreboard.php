@@ -2,7 +2,7 @@
 
 echo 'heeeeeeyyyyyy1';
 include('header.php');
-echo 'heeeeeeyyyyyy2';
+/*echo 'heeeeeeyyyyyy2';
 
 $gamedata = getGames();
 
@@ -34,5 +34,5 @@ function printLatestGamesTable($gameData){
     ?></table><?
 }
 
-
+*/
 ?>
