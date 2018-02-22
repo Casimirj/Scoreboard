@@ -9,7 +9,7 @@ if(isset($_POST['jamesCharacter'])){
     $inp = file_get_contents('data.json') or die("Unable to get contents!");
     $scores = json_decode($inp, true);
     foreach ($scores as $james) {
-        echo $james['james']['character'];
+        echo 'found something';
     }
 
     $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
