@@ -27,7 +27,7 @@ if(isset($_POST['jamesCharacter'])){
 
 
     $scores_json = json_encode($scores);
-    //fwrite($data, $scores_json) or die("Unable to write!");
+    fwrite($data, $scores_json) or die("Unable to write!");
     fclose($data);
 
 
