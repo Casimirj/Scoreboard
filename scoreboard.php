@@ -19,17 +19,17 @@ function getGames(){
     return $data;
 }
 
-    ?><table class="latestgames"><?
+    echo'<table class="latestgames">';
     foreach($gamedata as $datarow){
-        ?><tr>
-            <td><?=$datarow['round']?></td>
-            <td><?=$datarow['jamesCharacter']?></td>
-            <td><?=$datarow['jamesScore']?></td>
-            <td><?=$datarow['danielCharacter']?></td>
-            <td><?=$datarow['danielScore']?></td>`
-        </tr><?
+        echo('<tr>
+            <td>'.$datarow['round'].'</td>
+            <td>'.$datarow['jamesCharacter'].'</td>
+            <td>'.$datarow['jamesScore'].'</td>
+            <td>'.$datarow['danielCharacter'].'</td>
+            <td>'.$datarow['danielScore'].'</td>
+        </tr>');
     }
-    ?></table><?
+    echo'</table>';
 
 
 
