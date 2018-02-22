@@ -4,29 +4,36 @@ include('header.php');
 
 
 if(isset($_POST['jamesCharacter'])){
-    $data = fopen("data.json", "r") or die("Unable to open file!");
+    if($_POST['jamesscore'] > 2 || $_POST['jamesscore'] < 0 ||
+        $_POST['danielscore'] > 2 || $_POST['danielscore'] < 0 ){
+        echo("<h1 style='color:red; font-size:15em;'>Hey bro you cant input that! those scores are whack yo!</h1>");
+        echo("<h1 style='color:green; font-size:5em;'>you can try again when you can get it right, scores not submitted</h1>");
 
-    $inp = file_get_contents('data.json') or die("Unable to get contents!");
-    fclose($data);
-    $scores = json_decode(trim($inp), true);
-
-    $maxscore = 0;
-    foreach($scores as $score){
-        $maxscore = $score['round'];
     }
+    else{
+        $data = fopen("data.json", "r") or die("Unable to open file!");
 
-    $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
-    $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
-    $game = array('round'=>$maxscore+1, 'james'=>$james, 'daniel'=>$daniel);
+        $inp = file_get_contents('data.json') or die("Unable to get contents!");
+        fclose($data);
+        $scores = json_decode(trim($inp), true);
+        if($scores==null) $scores = array();
 
-    array_push($scores, $game );
-    $scores_json = json_encode($scores);
+        $maxround = 0;
+        foreach($scores as $score){
+            $maxsround = $score['round'];
+        }
 
-    $data = fopen("data.json", "w") or die("Unable to open file!");
-    fwrite($data, $scores_json) or die("Unable to write!");
-    fclose($data);
+        $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
+        $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
+        $game = array('round'=>$maxround+1, 'james'=>$james, 'daniel'=>$daniel);
 
+        array_push($scores, $game );
+        $scores_json = json_encode($scores);
 
+        $data = fopen("data.json", "w") or die("Unable to open file!");
+        fwrite($data, $scores_json) or die("Unable to write!");
+        fclose($data);
+    }
 }
 
 ?>
