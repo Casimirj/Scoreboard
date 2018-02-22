@@ -9,7 +9,7 @@ $gamedata = getGames();
 printLatestGamesTable($gamedata);
 
 echo('888888888888888888888888888888888888888888888888888888888888');
-
+generateScores($gamedata);
 
 
 function getGames(){
