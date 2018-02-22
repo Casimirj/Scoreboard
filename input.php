@@ -18,8 +18,12 @@ if(isset($_POST['jamesCharacter'])){
         $scores = json_decode(trim($inp), true);
         if($scores==null) $scores = array();
 
+        var_dump($scores);
+
+
         $maxround = 0;
         foreach($scores as $score){
+
             $maxsround = $score['round']+1;
         }
 
