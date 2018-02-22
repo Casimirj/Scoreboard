@@ -1,205 +1,96 @@
 <?php
 
+
 include('header.php');
 
+$gamedata = getGames();
+printLatestGamesTable($gamedata);
+$scores = generateScores($gamedata);
+printAllScores($scores);
 
-if(isset($_POST['jamesCharacter'])){
-    if($_POST['jamesscore'] > 2 || $_POST['jamesscore'] < 0 ||
-        $_POST['danielscore'] > 2 || $_POST['danielscore'] < 0 ){
-        echo("<h1 style='color:red; font-size:15em;'>Hey bro you cant input that! those scores are whack yo!</h1>");
-        echo("<h1 style='color:green; font-size:5em;'>you can try again when you can get it right, scores not submitted</h1>");
 
+
+
+
+
+
+
+/*8888888888888888888888888888888888888888888 -- FUNCTIONS -- 88888888888888888888888888888888888888888888888888*/
+/*----------------------------VIEWS----------------------------------*/
+function printLatestGamesTable($gamedata){
+    echo '<table class="latestgames">';
+    foreach ($gamedata as $datarow) {
+        echo('<tr>
+            <td>' . $datarow['round'] . '</td>
+            <td>' . $datarow['james']['character'] . '</td>
+            <td>' . $datarow['james']['score'] . '</td>
+            <td>' . $datarow['daniel']['character'] . '</td>
+            <td>' . $datarow['daniel']['score'] . '</td>
+        </tr>');
     }
-    else{
-        $data = fopen("data.json", "r") or die("Unable to open file!");
+    echo '</table>';
+}
+function printAllScores($scores){
+    $characters = array('Alien','Bo-Rai-Cho','Cassie-Cage','DVorah','Ermac','Erron-Black','Ferra/Torr','Goro','Jacqui-Briggs','Jason-Voorhees','Jax','Johnny-Cage','Kano','Kenshi','Kitana','Kotal-Kahn','Kung-Jin','Kung-Lao','Leatherface','Liu-Kang','Mileena','Predator','Quan-Chi','Raiden','Reptile','Scorpion','Shinnok','Sonya-Blade','Sub-Zero','Takeda','Tanya','Tremor','Triborg');
 
-        $inp = file_get_contents('data.json') or die("Unable to get contents!");
-        fclose($data);
-        $scores = json_decode(trim($inp), true);
-        if($scores===null) $scores = array();
 
-        $maxround = 0;
-        foreach($scores as $score){
-            $maxround =  $score['round']+1;
-        }
-
-        $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
-        $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
-        $game = array('round'=>($maxround), 'day'=>date("m.d.y.g:i.a"), 'james'=>$james, 'daniel'=>$daniel);
-
-        array_push($scores, $game );
-        $scores_json = json_encode($scores);
-
-        $data = fopen("data.json", "w") or die("Unable to open file!");
-        fwrite($data, $scores_json) or die("Unable to write!");
-        fclose($data);
+    echo '<h1>James Scores</h1><table class="scoretable">';
+    echo'<tr><th>Character</th><th>Score</th><th>Wins</th><th>Losses</th></tr>';
+    foreach($characters as $character){
+        echo'<tr><td>'.$character.'</td><td>'.$scores['jscore'][$character].'</td>';
+        echo'<td>'.$scores['jwins'][$character].'</td><td>'.$scores['jlosses'][$character].'</td></tr>';
     }
+    echo'</table>';
+    echo '<h1>Daniel Scores</h1><table class="scoretable">';
+    echo'<tr><th>Character</th><th>Score</th><th>Wins</th><th>Losses</th></tr>';
+    foreach($characters as $character){
+        echo'<tr><td>'.$character.'</td><td>'.$scores['dscore'][$character].'</td>';
+        echo'<td>'.$scores['dwins'][$character].'</td><td>'.$scores['dlosses'][$character].'</td></tr>';
+    }
+    echo'</table>';
+
+
 }
 
+/*----------------------------HELPER FUNCTIONS----------------------------------*/
+function getGames(){
+    $datafile = fopen("data.json", "r") or die("Unable to open file!");
+    $data_json= file_get_contents('data.json') or die("Unable to get contents!");
+    $data = json_decode(trim($data_json), true);
+    fclose($datafile);
+    return $data;
+}
+
+
+function generateScores($gamedata){
+    $jscore = array('Alien' => 0,'Bo-Rai-Cho' => 0,'Cassie-Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron-Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui-Briggs' => 0,'Jason-Voorhees' => 0,'Jax' => 0,'Johnny-Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal-Kahn' => 0,'Kung-Jin' => 0,'Kung-Lao' => 0,'Leatherface' => 0,'Liu-Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan-Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya-Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+    $jwins = array('Alien' => 0,'Bo-Rai-Cho' => 0,'Cassie-Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron-Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui-Briggs' => 0,'Jason-Voorhees' => 0,'Jax' => 0,'Johnny-Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal-Kahn' => 0,'Kung-Jin' => 0,'Kung-Lao' => 0,'Leatherface' => 0,'Liu-Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan-Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya-Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+    $jlosses = array('Alien' => 0,'Bo-Rai-Cho' => 0,'Cassie-Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron-Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui-Briggs' => 0,'Jason-Voorhees' => 0,'Jax' => 0,'Johnny-Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal-Kahn' => 0,'Kung-Jin' => 0,'Kung-Lao' => 0,'Leatherface' => 0,'Liu-Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan-Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya-Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+
+    $dscore = array('Alien' => 0,'Bo-Rai-Cho' => 0,'Cassie-Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron-Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui-Briggs' => 0,'Jason-Voorhees' => 0,'Jax' => 0,'Johnny-Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal-Kahn' => 0,'Kung-Jin' => 0,'Kung-Lao' => 0,'Leatherface' => 0,'Liu-Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan-Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya-Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+    $dwins = array('Alien' => 0,'Bo-Rai-Cho' => 0,'Cassie-Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron-Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui-Briggs' => 0,'Jason-Voorhees' => 0,'Jax' => 0,'Johnny-Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal-Kahn' => 0,'Kung-Jin' => 0,'Kung-Lao' => 0,'Leatherface' => 0,'Liu-Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan-Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya-Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+    $dlosses = array('Alien' => 0,'Bo-Rai-Cho' => 0,'Cassie-Cage' => 0,'DVorah' => 0,'Ermac' => 0,'Erron-Black' => 0,'Ferra/Torr' => 0,'Goro' => 0,'Jacqui-Briggs' => 0,'Jason-Voorhees' => 0,'Jax' => 0,'Johnny-Cage' => 0,'Kano' => 0,'Kenshi' => 0,'Kitana' => 0,'Kotal-Kahn' => 0,'Kung-Jin' => 0,'Kung-Lao' => 0,'Leatherface' => 0,'Liu-Kang' => 0,'Mileena' => 0,'Predator' => 0,'Quan-Chi' => 0,'Raiden' => 0,'Reptile' => 0,'Scorpion' => 0,'Shinnok' => 0,'Sonya-Blade' => 0,'Sub-Zero' => 0,'Takeda' => 0,'Tanya' => 0,'Tremor' => 0,'Triborg' => 0);
+
+
+    foreach($gamedata as $datarow){
+        $jwins[$datarow['james']['character']] += $datarow['james']['score'];
+        $dwins[$datarow['james']['character']] += $datarow['daniel']['score'];
+        $jwins[$datarow['daniel']['character']] += $datarow['james']['score'];
+        $dwins[$datarow['daniel']['character']] += $datarow['daniel']['score'];
+
+        $jlosses[$datarow['james']['character']] += $datarow['daniel']['score'];
+        $dlosses[$datarow['james']['character']] += $datarow['james']['score'];
+        $jlosses[$datarow['daniel']['character']] += $datarow['daniel']['score'];
+        $dlosses[$datarow['daniel']['character']] += $datarow['james']['score'];
+
+        $jscore[$datarow['james']['character']] = $jwins[$datarow['james']['character']] - $jlosses[$datarow['james']['character']];
+        $dscore[$datarow['daniel']['character']] = $dwins[$datarow['daniel']['character']] - $dlosses[$datarow['daniel']['character']];
+    }
+    $scores = array('jscore'=>$jscore, 'jwins'=>$jwins, 'jlosses'=>$jlosses, 'dscore'=>$dscore, 'dwins'=>$dwins, 'dlosses'=>$dlosses);
+    print_r($scores);
+    return $scores;
+}
+
+
+
 ?>
-
-<form action="input.php" method="post">
-
-    <div class="jamesInput inputbox">
-        <div class="inputtext">
-            James's Character
-        </div>
-        <div class="characterinput">
-            <input name="jamesCharacter" list="characters" title="jameschar" />
-            <datalist id="characters">
-                <option>Alien</option>
-                <option>Bo Rai Cho</option>
-                <option>Cassie Cage</option>
-                <option>DVorah</option>
-                <option>Ermac</option>
-                <option>Erron Black</option>
-                <option>Ferra/Torr</option>
-                <option>Goro</option>
-                <option>Jacqui Briggs</option>
-                <option>Jason Voorhees</option>
-                <option>Jax</option>
-                <option>Johnny Cage</option>
-                <option>Kano</option>
-                <option>Kenshi</option>
-                <option>Kitana</option>
-                <option>Kotal Kahn</option>
-                <option>Kung Jin</option>
-                <option>Kung Lao</option>
-                <option>Leatherface</option>
-                <option>Liu Kang</option>
-                <option>Mileena</option>
-                <option>Predator</option>
-                <option>Quan Chi</option>
-                <option>Raiden</option>
-                <option>Reptile</option>
-                <option>Scorpion</option>
-                <option>Shinnok</option>
-                <option>Sonya Blade</option>
-                <option>Sub-Zero</option>
-                <option>Takeda</option>
-                <option>Tanya</option>
-                <option>Tremor</option>
-                <option>Triborg</option>
-            </datalist>
-        </div>
-        <div class="inputtext">
-            <td>Wins</td>
-        </div>
-        <div class="winsinput">
-            <td><input type='number' name="jamesscore" title="jamesscore"/> </td>
-        </div>
-
-    </table>
-
-
-
-
-
-
-</div>
-<div class="danInput inputbox">
-    <div class="inputtext">
-         Danjamin's Character
-    </div>
-    <div class="characterinput">
-    <input name="danielCharacter" list="characters" title="danielchar" />
-    <datalist id="characters">
-        <option>Alien</option>
-        <option>Bo Rai Cho</option>
-        <option>Cassie Cage</option>
-        <option>DVorah</option>
-        <option>Ermac</option>
-        <option>Erron Black</option>
-        <option>Ferra/Torr</option>
-        <option>Goro</option>
-        <option>Jacqui Briggs</option>
-        <option>Jason Voorhees</option>
-        <option>Jax</option>
-        <option>Johnny Cage</option>
-        <option>Kano</option>
-        <option>Kenshi</option>
-        <option>Kitana</option>
-        <option>Kotal Kahn</option>
-        <option>Kung Jin</option>
-        <option>Kung Lao</option>
-        <option>Leatherface</option>
-        <option>Liu Kang</option>
-        <option>Mileena</option>
-        <option>Predator</option>
-        <option>Quan Chi</option>
-        <option>Raiden</option>
-        <option>Reptile</option>
-        <option>Scorpion</option>
-        <option>Shinnok</option>
-        <option>Sonya Blade</option>
-        <option>Sub-Zero</option>
-        <option>Takeda</option>
-        <option>Tanya</option>
-        <option>Tremor</option>
-        <option>Triborg</option>
-    </datalist>
-    </div>
-    <div class="inputtext">
-            <td>Wins</td>
-    </div>
-    <div class="winsinput">
-        <td><input type='number' name="danielscore" title="danielscore"/> </td>
-    </div>
-</div>
-
-
-<input type="submit" class="submitbutton" value="" />
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<input type="text" list="characters" />
-<datalist id="characters">
-    <option>Alien</option>
-    <option>Bo Rai Cho</option>
-    <option>Cassie Cage</option>
-    <option>DVorah</option>
-    <option>Ermac</option>
-    <option>Erron Black</option>
-    <option>Ferra/Torr</option>
-    <option>Goro</option>
-    <option>Jacqui Briggs</option>
-    <option>Jason Voorhees</option>
-    <option>Jax</option>
-    <option>Johnny Cage</option>
-    <option>Kano</option>
-    <option>Kenshi</option>
-    <option>Kitana</option>
-    <option>Kotal Kahn</option>
-    <option>Kung Jin</option>
-    <option>Kung Lao</option>
-    <option>Leatherface</option>
-    <option>Liu Kang</option>
-    <option>Mileena</option>
-    <option>Predator</option>
-    <option>Quan Chi</option>
-    <option>Raiden</option>
-    <option>Reptile</option>
-    <option>Scorpion</option>
-    <option>Shinnok</option>
-    <option>Sonya Blade</option>
-    <option>Sub-Zero</option>
-    <option>Takeda</option>
-    <option>Tanya</option>
-    <option>Tremor</option>
-    <option>Triborg</option>
-
-</datalist>-->
