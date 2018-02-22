@@ -29,7 +29,7 @@ function printLatestGamesTable($gameData){
 
         </tr><?
     }
-    ?></table>
+    ?></table><?
 }
 
 
