@@ -12,7 +12,7 @@ if(isset($_POST['jamesCharacter'])){
 
     $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
     $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
-    $game = array('round'=>1, 'james'=>$james, 'daniel'=>$daniel);
+    $game = array('round'=>2, 'james'=>$james, 'daniel'=>$daniel);
     //print_r($game);
 
     array_push($scores, $game);
