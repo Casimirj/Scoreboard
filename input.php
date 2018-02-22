@@ -9,7 +9,9 @@ if(isset($_POST['jamesCharacter'])){
     $inp = file_get_contents('data.json');
     $scores = json_decode($inp);
 
-    $game = array();
+    $game = array('round', 'james', 'daniel');
+    $game->james = array('character', 'score');
+    $game->daniel = array('character', 'score');
     $game->round = 1;
     $game->james->character = $_POST['jamesCharacter'];
     $game->james->score = $_POST['jamesscore'];
