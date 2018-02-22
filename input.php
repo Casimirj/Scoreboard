@@ -15,6 +15,9 @@ if(isset($_POST['jamesCharacter'])){
     foreach ($scores as $score) {
         echo $score['james']['character'];
     }
+    print_r($scores);
+
+
 
     $james = array('character'=> $_POST['jamesCharacter'], 'score'=>$_POST['jamesscore']);
     $daniel = array('character'=>$_POST['danielCharacter'], 'score'=>$_POST['danielscore']);
