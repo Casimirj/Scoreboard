@@ -22,9 +22,8 @@ if(isset($_POST['jamesCharacter'])){
     $scores_json = json_encode($scores);
     fwrite($data, $scores_json);
     fclose($data);
-    print_r($scores);
+    //print_r($scores);
 
-    echo($scores_json);
 }
 
 ?>
