@@ -40,13 +40,14 @@ function printAllScores($scores){
         echo'<tr><td>'.$character.'</td><td>'.$scores['jscore'][$character].'</td>';
         echo'<td>'.$scores['jwins'][$character].'</td><td>'.$scores['jlosses'][$character].'</td></tr>';
     }
+    echo'</table>';
     echo '<h1>Daniel Scores</h1><table class="scoretable">';
     echo'<tr><th>Character</th><th>Score</th><th>Wins</th><th>Losses</th></tr>';
     foreach($characters as $character){
         echo'<tr><td>'.$character.'</td><td>'.$scores['dscore'][$character].'</td>';
         echo'<td>'.$scores['dwins'][$character].'</td><td>'.$scores['dlosses'][$character].'</td></tr>';
     }
-
+    echo'</table>';
 
 
 }
