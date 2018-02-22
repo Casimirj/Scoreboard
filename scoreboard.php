@@ -30,7 +30,7 @@ function printLatestGamesTable($gamedata){
     }
     echo '</table>';
 }
-function printAllScores($scores){
+/*function printAllScores($scores){
     $characters = array('Alien','Bo-Rai-Cho','Cassie-Cage','DVorah','Ermac','Erron-Black','Ferra/Torr','Goro','Jacqui-Briggs','Jason-Voorhees','Jax','Johnny-Cage','Kano','Kenshi','Kitana','Kotal-Kahn','Kung-Jin','Kung-Lao','Leatherface','Liu-Kang','Mileena','Predator','Quan-Chi','Raiden','Reptile','Scorpion','Shinnok','Sonya-Blade','Sub-Zero','Takeda','Tanya','Tremor','Triborg');
 
 
@@ -50,7 +50,7 @@ function printAllScores($scores){
     echo'</table>';
 
 
-}
+}*/
 
 /*----------------------------HELPER FUNCTIONS----------------------------------*/
 function getGames(){
