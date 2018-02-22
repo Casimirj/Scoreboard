@@ -23,11 +23,11 @@ function printLatestGamesTable($gamedata){
     ?><table class="latestgames"><?
     foreach($gamedata as $datarow){
         ?><tr>
-            <td><?$datarow['round']?></td>
-            <td><?$datarow['jamesCharacter']?></td>
-            <td><?$datarow['jamesScore']?></td>
-            <td><?$datarow['danielCharacter']?></td>
-            <td><?$datarow['danielScore']?></td>
+        <td><?echo $datarow['round']?></td>
+        <td><?echo $datarow['jamesCharacter']?></td>
+        <td><?echo $datarow['jamesScore']?></td>
+        <td><?echo $datarow['danielCharacter']?></td>
+        <td><?echo $datarow['danielScore']?></td>
 
         </tr><?
     }
