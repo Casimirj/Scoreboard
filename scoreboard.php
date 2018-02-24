@@ -110,6 +110,8 @@ function getWonCharacters($scores){
     $characters = array('Alien','Bo-Rai-Cho','Cassie-Cage','DVorah','Ermac','Erron-Black','Ferra/Torr','Goro','Jacqui-Briggs','Jason-Voorhees','Jax','Johnny-Cage','Kano','Kenshi','Kitana','Kotal-Kahn','Kung-Jin','Kung-Lao','Leatherface','Liu-Kang','Mileena','Predator','Quan-Chi','Raiden','Reptile','Scorpion','Shinnok','Sonya-Blade','Sub-Zero','Takeda','Tanya','Tremor','Triborg');
     $jbestcharacters =  array();
     $dbestcharacters =  array();
+    print_r($scores);
+    echo('<p>--------------------------------------------------------------------------------</p>');
 
     for($i = 0; $i < 10; $i++) {
         $maxjscore = 0;
