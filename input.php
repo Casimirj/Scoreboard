@@ -19,8 +19,8 @@ if(isset($_POST['jamesCharacter'])){
         if($scores===null) $scores = array();
 
         $maxround = 0;
-        foreach($scores as $score){
-            $maxround =  $score['round']+1;
+        foreach($scores as $row){
+            $maxround =  $row['round']+1;
         }
 
         $james = array('character'=> str_replace(' ', '-', $_POST['jamesCharacter']), 'score'=>$_POST['jamesscore']);
@@ -33,6 +33,7 @@ if(isset($_POST['jamesCharacter'])){
         $data = fopen("data.json", "w") or die("Unable to open file!");
         fwrite($data, $scores_json) or die("Unable to write!");
         fclose($data);
+
     }
 }
 
