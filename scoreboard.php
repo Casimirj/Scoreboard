@@ -103,7 +103,7 @@ function generateScores($gamedata){
         $dwinpercent[$datarow['daniel']['character']] = ($dwins[$datarow['daniel']['character']]/($dwins[$datarow['daniel']['character']] + $dlosses[$datarow['daniel']['character']]));
 
     }
-    $scores = array('jscore'=>$jscore, 'jwins'=>$jwins, 'jlosses'=>$jlosses, 'dscore'=>$dscore, 'dwins'=>$dwins, 'dlosses'=>$dlosses);
+    $scores = array('jscore'=>$jscore, 'jwins'=>$jwins, 'jlosses'=>$jlosses, 'jwinpercent'=>$jwinpercent, 'dscore'=>$dscore, 'dwins'=>$dwins, 'dlosses'=>$dlosses, 'dwinpercent'=>$dwinpercent);
     return $scores;
 }
 function getWonCharacters($scores){
