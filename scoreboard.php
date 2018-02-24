@@ -7,7 +7,7 @@ $gamedata = getGames();
 printLatestGamesTable($gamedata);
 $scores = generateScores($gamedata);
 printAllScores($scores);
-
+getWonCharacters($scores);
 
 
 
