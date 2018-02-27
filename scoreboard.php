@@ -106,17 +106,15 @@ function generateScores($gamedata){
     $scores = array('jscore'=>$jscore, 'jwins'=>$jwins, 'jlosses'=>$jlosses, 'jwinpercent'=>$jwinpercent, 'dscore'=>$dscore, 'dwins'=>$dwins, 'dlosses'=>$dlosses, 'dwinpercent'=>$dwinpercent);
     return $scores;
 }
-function getWonCharacters($scores){
+function getWonCharacters($scores, $min = 0, $maxcount = 10){
     $characters = array('Alien','Bo-Rai-Cho','Cassie-Cage','DVorah','Ermac','Erron-Black','Ferra/Torr','Goro','Jacqui-Briggs','Jason-Voorhees','Jax','Johnny-Cage','Kano','Kenshi','Kitana','Kotal-Kahn','Kung-Jin','Kung-Lao','Leatherface','Liu-Kang','Mileena','Predator','Quan-Chi','Raiden','Reptile','Scorpion','Shinnok','Sonya-Blade','Sub-Zero','Takeda','Tanya','Tremor','Triborg');
     $jbestcharacters =  array();
     $dbestcharacters =  array();
-    print_r($scores);
-    echo('<p>--------------------------------------------------------------------------------</p>');
 
-    for($i = 0; $i < 10; $i++) {
-        $maxjscore = 0;
+    for($i = 0; $i < $maxcount; $i++) {
+        $maxjscore = $min;
         $maxjcharacter = '';
-        $maxdscore = 0;
+        $maxdscore = $min;
         $maxdcharacter = '';
 
         foreach ($characters as $character) {
@@ -135,9 +133,9 @@ function getWonCharacters($scores){
         $scores['jwinpercent'][$maxjcharacter] = 0;
         $scores['dwinpercent'][$maxdcharacter] = 0;
     }
+    
 
-    print_r($jbestcharacters);
-    print_r($jbestcharacters);
+    return array($jbestcharacters, $dbestcharacters);
 
 }
 
