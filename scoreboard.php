@@ -7,8 +7,8 @@ $gamedata = getGames();
 printLatestGamesTable($gamedata);
 $scores = generateScores($gamedata);
 printAllScores($scores);
-getWonCharacters($scores);
-
+//getWonCharacters($scores);
+printTopCharacters($scores, 0, 10);
 
 
 
@@ -30,6 +30,25 @@ function printLatestGamesTable($gamedata){
     }
     echo '</table>';
 }
+function printTopCharacters($scores, $min, $limit){
+    $characters = array('Alien','Bo-Rai-Cho','Cassie-Cage','DVorah','Ermac','Erron-Black','Ferra/Torr','Goro','Jacqui-Briggs','Jason-Voorhees','Jax','Johnny-Cage','Kano','Kenshi','Kitana','Kotal-Kahn','Kung-Jin','Kung-Lao','Leatherface','Liu-Kang','Mileena','Predator','Quan-Chi','Raiden','Reptile','Scorpion','Shinnok','Sonya-Blade','Sub-Zero','Takeda','Tanya','Tremor','Triborg');
+
+    $topCharacters = getWonCharacters($scores, $min, $limit);
+
+    echo '<h1>James Top '.$limit.'</h1><table class="scoretable">';
+    echo'<tr><th>Character</th><th>Score</th></tr>';
+    foreach($topCharacters['jbest'] as $topCharacter){
+        echo'<tr><td>'.$topCharacter['character'].'</td><td>'.$topCharacter['score'].'</td></tr>';
+    }
+    echo '</table>';
+    echo '<h1>Daniel Top '.$limit.'</h1><table class="scoretable">';
+    echo'<tr><th>Character</th><th>Score</th></tr>';
+    foreach($topCharacters['dbest'] as $topCharacter){
+        echo'<tr><td>'.$topCharacter['character'].'</td><td>'.$topCharacter['score'].'</td></tr>';
+    }
+    echo '</table>';
+
+}
 function printAllScores($scores){
     $characters = array('Alien','Bo-Rai-Cho','Cassie-Cage','DVorah','Ermac','Erron-Black','Ferra/Torr','Goro','Jacqui-Briggs','Jason-Voorhees','Jax','Johnny-Cage','Kano','Kenshi','Kitana','Kotal-Kahn','Kung-Jin','Kung-Lao','Leatherface','Liu-Kang','Mileena','Predator','Quan-Chi','Raiden','Reptile','Scorpion','Shinnok','Sonya-Blade','Sub-Zero','Takeda','Tanya','Tremor','Triborg');
 
@@ -50,12 +69,6 @@ function printAllScores($scores){
     echo'</table>';
 }
 
-function printWonCharacters($scores){
-    $characters = array('Alien','Bo-Rai-Cho','Cassie-Cage','DVorah','Ermac','Erron-Black','Ferra/Torr','Goro','Jacqui-Briggs','Jason-Voorhees','Jax','Johnny-Cage','Kano','Kenshi','Kitana','Kotal-Kahn','Kung-Jin','Kung-Lao','Leatherface','Liu-Kang','Mileena','Predator','Quan-Chi','Raiden','Reptile','Scorpion','Shinnok','Sonya-Blade','Sub-Zero','Takeda','Tanya','Tremor','Triborg');
-
-
-    echo '<h1>James Characters</h1><table class="woncharacterstable">';
-}
 
 /*----------------------------HELPER FUNCTIONS----------------------------------*/
 function getGames(){
@@ -135,7 +148,7 @@ function getWonCharacters($scores, $min = 0, $maxcount = 10){
     }
     
 
-    return array($jbestcharacters, $dbestcharacters);
+    return array('jbest'=>$jbestcharacters, 'dbest'=>$dbestcharacters);
 
 }
 
